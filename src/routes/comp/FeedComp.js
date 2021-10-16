@@ -21,23 +21,7 @@ function FeedComp() {
 	const [feed_list, set_feed_list] = useState("");
 	const [loading, setLoading] = useState(true);
 
-	const [user_data, set_user_data] = useState({});
 
-	useEffect(() => {
-
-    const subscriber = firebase.firestore()
-    
-      .collection('users')
-      .doc(firebase.auth().currentUser.email)
-      .onSnapshot(doc => {
-        
-
-        set_user_data(doc.data());
-      });
-  
-    // Unsubscribe from blogs when no longer in use
-    return () => subscriber();
-  }, []); 
 
 
 	useEffect(() => {
